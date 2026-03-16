@@ -41,7 +41,9 @@ where
 
 The objective is to find an **optimal policy**
 
-$\pi$*$(s) = \arg\max_a Q$*$(s,a)$
+$$
+\pi^{\star}(s) = \arg\max_a Q^{\star}(s,a)
+$$
 
 that maximizes the expected cumulative discounted reward
 
