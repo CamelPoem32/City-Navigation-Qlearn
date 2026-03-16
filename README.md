@@ -42,11 +42,11 @@ where
 The objective is to find an **optimal policy**
 
 $$
-\pi{}^*(s) = \arg\max_a Q*(s,a)
+\pi^{*}(s) = \arg\max_a Q^{*}(s,a)
 $$
 
-that maximizes the expected cumulative discounted reward
-
+that $\pi^{*}(s)$ maximizes the expected cumulative discounted reward
+Test: $\pi^{*}(s)$ and $$\pi^{*}(s)$$
 $$
 \mathbb{E}\left[\sum_{t=0}^{\infty}\gamma^t r_t\right].
 $$
