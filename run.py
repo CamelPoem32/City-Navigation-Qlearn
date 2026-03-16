@@ -80,7 +80,7 @@ def parse_args():
     parser.add_argument(
         "--eps",
         type=float,
-        default=0.1,
+        default=0.9,
         help="epsilon exploration",
     )
 
