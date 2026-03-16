@@ -373,16 +373,19 @@ Turn types can also be shown as symbols:
 Experiments show the following behavior.
 
 **Policy Iteration**
+
 Policy Iteration converges in very few iterations because each step directly improves the policy.
 
 ![alt text](results/policy_convergence.png)
 
 **Value Iteration**
+
 Value Iteration converges more slowly because it repeatedly updates state values before extracting the policy.
 
 ![alt text](results/value_convergence.png)
 
 **Q-Learning**
+
 Q-Learning requires many episodes but has the advantage of **not requiring a known model of the environment**.
 
 ![alt text](results/q_njit_convergence.png)
@@ -396,15 +399,19 @@ All methods successfully produce routing strategies that prefer
 which aligns with real logistics routing strategies.
 
 **Policy Iteration**
+
 ![alt text](results/policy_policy.png)
 
 **Value Iteration**
+
 ![alt text](results/value_policy.png)
 
 **Q-Learning**
+
 ![alt text](results/q_njit_policy.png)
 
 ### *Real map*
+
 Piedmont City map can be useful in understanding the trajectories solved:
 ![alt text](results/Map_orig.png)
 
