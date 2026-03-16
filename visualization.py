@@ -136,6 +136,8 @@ def visualize_graph(G, V, policy, nodes, node_index, turns, node_size=250, show_
 
     plt.show()
 
+    return fig
+
 def plot_convergence(V_history, Q_history, conv, action_names=None):
 
     max_v = np.max([len(V_history[i]) for i in range(len(V_history))])
@@ -204,3 +206,5 @@ def plot_convergence(V_history, Q_history, conv, action_names=None):
 
     plt.tight_layout()
     plt.show()
+
+    return fig
