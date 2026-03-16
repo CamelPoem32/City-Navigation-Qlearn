@@ -368,43 +368,24 @@ Turn types can also be shown as symbols:
 
 ---
 
-# Experimental Workflow
-
-1. Generate or download graph
-`G = create_artificial_graph(5)`
-or 
-`G = create_city_graph("Piedmont, California, USA")`
-
-2. Detect turn directions
-`turns = detect_turns(G)`
-
-3. Convert graph to NumPy representation
-`nodes, node_index, coords, neighbors = graph_to_numpy(G)`
-
-4. Compute action costs
-`neighbors, costs = build_neighbors_costs(G, nodes, node_index, turns)`
-
-5. Run algorithms
-`V, policy = value_iteration(neighbors, costs)`
-or
-`V, policy = policy_iteration(neighbors, costs)`
-or
-`Q, policy = q_learning(neighbors, costs)`
-
-6. Visualize policy
-`visualize_graph(...)`
-
----
-
 # Results
 
 Experiments show the following behavior.
 
+**Policy Iteration**
 Policy Iteration converges in very few iterations because each step directly improves the policy.
 
+![alt text](results/policy_convergence.png)
+
+**Value Iteration**
 Value Iteration converges more slowly because it repeatedly updates state values before extracting the policy.
 
+![alt text](results/value_convergence.png)
+
+**Q-Learning**
 Q-Learning requires many episodes but has the advantage of **not requiring a known model of the environment**.
+
+![alt text](results/q_njit_convergence.png)
 
 All methods successfully produce routing strategies that prefer
 
@@ -413,6 +394,22 @@ All methods successfully produce routing strategies that prefer
 - lower crash risk
 
 which aligns with real logistics routing strategies.
+
+**Policy Iteration**
+![alt text](results/policy_policy.png)
+
+**Value Iteration**
+![alt text](results/value_policy.png)
+
+**Q-Learning**
+![alt text](results/q_njit_policy.png)
+
+### *Real map*
+Piedmont City map can be useful in understanding the trajectories solved:
+![alt text](results/Map_orig.png)
+
+And here is trajectory on map:
+![alt text](results/Map_merge.png)
 
 ---
 
@@ -472,6 +469,34 @@ python run.py --method <algorithm> --graph <type> [additional options]
 |------|------|
 | `artificial` | Synthetic grid-like road network |
 | `city` | Real road network downloaded from OpenStreetMap |
+
+---
+
+# Experimental Workflow
+
+1. Generate or download graph
+`G = create_artificial_graph(5)`
+or 
+`G = create_city_graph("Piedmont, California, USA")`
+
+2. Detect turn directions
+`turns = detect_turns(G)`
+
+3. Convert graph to NumPy representation
+`nodes, node_index, coords, neighbors = graph_to_numpy(G)`
+
+4. Compute action costs
+`neighbors, costs = build_neighbors_costs(G, nodes, node_index, turns)`
+
+5. Run algorithms
+`V, policy = value_iteration(neighbors, costs)`
+or
+`V, policy = policy_iteration(neighbors, costs)`
+or
+`Q, policy = q_learning(neighbors, costs)`
+
+6. Visualize policy
+`visualize_graph(...)`
 
 ### Example Runs
 
